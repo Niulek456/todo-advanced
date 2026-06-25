@@ -38,7 +38,7 @@ export default function Profile() {
         
         {/* ================= RZĄD 1 (Góra) ================= */}
         
-        {/* 1. Profil */}
+        {/* 1. Profil (4/12) */}
         <Grid item xs={12} md={4}>
           <Paper elevation={0} sx={{ p: 4, borderRadius: '24px', border: '1px solid #e2e8f0', bgcolor: '#ffffff', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
             <Avatar sx={{ bgcolor: '#1a1a1a', color: '#FFD600', width: 80, height: 80, fontWeight: '900', fontSize: '2.5rem', mb: 2 }}>
@@ -62,7 +62,7 @@ export default function Profile() {
           </Paper>
         </Grid>
 
-        {/* 2. Wskaźnik ukończenia - Zwężony do md={3} */}
+        {/* 2. Wskaźnik ukończenia (3/12) */}
         <Grid item xs={12} md={3}>
           <Paper elevation={0} sx={{ p: 4, borderRadius: '24px', border: '1px solid #e2e8f0', bgcolor: '#ffffff', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <Typography variant="subtitle2" fontWeight="800" textTransform="uppercase" sx={{ color: '#64748b', mb: 2 }}>Wskaźnik ukończenia</Typography>
@@ -75,7 +75,7 @@ export default function Profile() {
           </Paper>
         </Grid>
 
-        {/* 3. Aktywność w tygodniu - Poszerzony do md={5} */}
+        {/* 3. Aktywność w tygodniu (5/12) - Wyrównane prawą stroną ze statystykami */}
         <Grid item xs={12} md={5}>
           <Paper elevation={0} sx={{ p: 4, borderRadius: '24px', border: '1px solid #e2e8f0', bgcolor: '#ffffff', height: '100%', display: 'flex', flexDirection: 'column' }}>
             <Typography variant="subtitle2" fontWeight="800" textTransform="uppercase" sx={{ color: '#64748b', mb: 'auto' }}>Aktywność w tygodniu</Typography>
@@ -107,7 +107,7 @@ export default function Profile() {
 
         {/* ================= RZĄD 2 (Dół) ================= */}
         
-        {/* 4. Alert / Powiadomienia - Dostosowany do md={7} (licuje się z dwoma pierwszymi górnymi) */}
+        {/* 4. Alert / Powiadomienia (7/12) - Sumuje szerokość profilu (4) i wskaźnika (3) */}
         <Grid item xs={12} md={7}>
           {highPriorityTasks > 0 ? (
             <Paper elevation={0} sx={{ height: '100%', p: 4, borderRadius: '24px', bgcolor: '#1a1a1a', color: '#ffffff', display: 'flex', alignItems: 'center', gap: 3 }}>
@@ -126,26 +126,26 @@ export default function Profile() {
           )}
         </Grid>
 
-        {/* 5. Statystyki - Poszerzone do md={5} (licują się z wykresem aktywności) */}
+        {/* 5. Statystyki (5/12) - Wyrównane idealnie pod aktywnością (5/12) */}
         <Grid item xs={12} md={5}>
           <Box sx={{ display: 'flex', width: '100%', height: '100%', gap: 2 }}>
             
-            {/* Żółty Kafelek */}
-            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#FFD600', color: '#1a1a1a', p: 2, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <Typography variant="h4" fontWeight="900" sx={{ fontSize: { xs: '2rem', sm: '2.125rem' } }}>{totalTasks}</Typography>
-              <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>Ogółem</Typography>
+            {/* Żółty Kafelek - dodano minWidth: 0, by tekst go nie rozpychał */}
+            <Paper elevation={0} sx={{ flex: 1, minWidth: 0, bgcolor: '#FFD600', color: '#1a1a1a', p: 1.5, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+              <Typography variant="h4" fontWeight="900" sx={{ fontSize: { xs: '1.75rem', sm: '2rem' } }}>{totalTasks}</Typography>
+              <Typography variant="caption" fontWeight="800" textTransform="uppercase" noWrap sx={{ fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>Ogółem</Typography>
             </Paper>
 
             {/* Czarny Kafelek */}
-            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#1a1a1a', color: '#ffffff', p: 2, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <Typography variant="h4" fontWeight="900" sx={{ fontSize: { xs: '2rem', sm: '2.125rem' } }}>{completedTasks}</Typography>
-              <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ color: '#94a3b8', fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>Gotowe</Typography>
+            <Paper elevation={0} sx={{ flex: 1, minWidth: 0, bgcolor: '#1a1a1a', color: '#ffffff', p: 1.5, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+              <Typography variant="h4" fontWeight="900" sx={{ fontSize: { xs: '1.75rem', sm: '2rem' } }}>{completedTasks}</Typography>
+              <Typography variant="caption" fontWeight="800" textTransform="uppercase" noWrap sx={{ color: '#94a3b8', fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>Gotowe</Typography>
             </Paper>
 
             {/* Biały Kafelek */}
-            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#ffffff', border: '1px solid #e2e8f0', p: 2, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <Typography variant="h4" fontWeight="900" sx={{ color: '#1a1a1a', fontSize: { xs: '2rem', sm: '2.125rem' } }}>{pendingTasks}</Typography>
-              <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ color: '#64748b', fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>W toku</Typography>
+            <Paper elevation={0} sx={{ flex: 1, minWidth: 0, bgcolor: '#ffffff', border: '1px solid #e2e8f0', p: 1.5, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+              <Typography variant="h4" fontWeight="900" sx={{ color: '#1a1a1a', fontSize: { xs: '1.75rem', sm: '2rem' } }}>{pendingTasks}</Typography>
+              <Typography variant="caption" fontWeight="800" textTransform="uppercase" noWrap sx={{ color: '#64748b', fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>W toku</Typography>
             </Paper>
 
           </Box>
