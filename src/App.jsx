@@ -51,23 +51,24 @@ function AppContent() {
   return (
     <>
       <AppBar position="sticky" elevation={0} sx={{ bgcolor: 'rgba(255, 255, 255, 0.8)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #e2e8f0', color: 'text.primary' }}>
-        <Toolbar sx={{ height: 80, px: { xs: 2, sm: 4, md: 6 } }}> 
-          {/* POPRAWKA 1: Wymuszenie tekstu do lewej (textAlign: 'left') */}
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: '#1a1a1a', fontWeight: 900, textAlign: 'left' }}>
+        {/* Odchudzamy pasek na telefonach (xs: 70) */}
+        <Toolbar sx={{ height: { xs: 70, sm: 80 }, px: { xs: 2, sm: 4, md: 6 } }}> 
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: '#1a1a1a', fontWeight: 900, textAlign: 'left', fontSize: { xs: '1.2rem', sm: '1.5rem' } }}>
             TaskMind.
           </Typography>
-          <Box sx={{ display: 'flex', gap: 1.5 }}>
+          <Box sx={{ display: 'flex', gap: { xs: 0.5, sm: 1.5 } }}>
             
-            {/* POPRAWKA 2: Duże, czarne pastylki (większe paddingi px, py i borderRadius 100px) */}
+            {/* Zmniejszony padding i tekst dla wersji mobilnej (xs) + wymuszenie jednej linii (whiteSpace) */}
             <Button 
               component={NavLink} 
               to="/" 
               disableElevation
               sx={{ 
-                px: 3, 
-                py: 1.2, 
+                px: { xs: 1.5, sm: 3 }, 
+                py: { xs: 0.8, sm: 1.2 }, 
                 borderRadius: '100px',
-                fontSize: '0.95rem',
+                fontSize: { xs: '0.75rem', sm: '0.95rem' },
+                whiteSpace: 'nowrap',
                 color: 'text.secondary', 
                 '&.active': { bgcolor: 'primary.main', color: 'white' },
                 '&:hover:not(.active)': { bgcolor: '#f1f5f9', color: 'primary.main' }
@@ -81,10 +82,11 @@ function AppContent() {
               to="/profile" 
               disableElevation
               sx={{ 
-                px: 3, 
-                py: 1.2, 
+                px: { xs: 1.5, sm: 3 }, 
+                py: { xs: 0.8, sm: 1.2 }, 
                 borderRadius: '100px',
-                fontSize: '0.95rem',
+                fontSize: { xs: '0.75rem', sm: '0.95rem' },
+                whiteSpace: 'nowrap',
                 color: 'text.secondary', 
                 '&.active': { bgcolor: 'primary.main', color: 'white' },
                 '&:hover:not(.active)': { bgcolor: '#f1f5f9', color: 'primary.main' }

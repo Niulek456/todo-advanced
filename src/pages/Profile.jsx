@@ -123,24 +123,25 @@ export default function Profile() {
           )}
         </Grid>
 
-        {/* 5. Statystyki KULODPORNE: używamy Boxa zamiast zagnieżdżonego Grida */}
+{/* 5. Statystyki mobilne (Pionowo jeden pod drugim na telefonach, kwadraty na komputerze) */}
         <Grid item xs={12} md={4}>
-          <Box sx={{ display: 'flex', gap: 2, height: '100%' }}>
+          {/* Ustawiamy flexDirection na 'column' dla małych ekranów (xs) i 'row' dla większych (sm/md) */}
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, height: '100%' }}>
             
             {/* Żółty Kwadrat */}
-            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#FFD600', color: '#1a1a1a', p: 1, aspectRatio: '1/1', borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#FFD600', color: '#1a1a1a', py: { xs: 2.5, sm: 1 }, px: 2, aspectRatio: { xs: 'auto', sm: '1/1' }, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <Typography variant="h4" fontWeight="900">{totalTasks}</Typography>
               <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ fontSize: '0.55rem', mt: 0.5 }}>Ogółem</Typography>
             </Paper>
 
             {/* Czarny Kwadrat */}
-            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#1a1a1a', color: '#ffffff', p: 1, aspectRatio: '1/1', borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#1a1a1a', color: '#ffffff', py: { xs: 2.5, sm: 1 }, px: 2, aspectRatio: { xs: 'auto', sm: '1/1' }, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <Typography variant="h4" fontWeight="900">{completedTasks}</Typography>
               <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ color: '#94a3b8', fontSize: '0.55rem', mt: 0.5 }}>Gotowe</Typography>
             </Paper>
 
             {/* Biały Kwadrat */}
-            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#ffffff', border: '1px solid #e2e8f0', p: 1, aspectRatio: '1/1', borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#ffffff', border: '1px solid #e2e8f0', py: { xs: 2.5, sm: 1 }, px: 2, aspectRatio: { xs: 'auto', sm: '1/1' }, borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <Typography variant="h4" fontWeight="900" sx={{ color: '#1a1a1a' }}>{pendingTasks}</Typography>
               <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ color: '#64748b', fontSize: '0.55rem', mt: 0.5 }}>W toku</Typography>
             </Paper>
