@@ -38,6 +38,7 @@ export default function Profile() {
         
         {/* ================= RZĄD 1 (Góra) ================= */}
         
+        {/* 1. Profil */}
         <Grid item xs={12} md={4}>
           <Paper elevation={0} sx={{ p: 4, borderRadius: '24px', border: '1px solid #e2e8f0', bgcolor: '#ffffff', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
             <Avatar sx={{ bgcolor: '#1a1a1a', color: '#FFD600', width: 80, height: 80, fontWeight: '900', fontSize: '2.5rem', mb: 2 }}>
@@ -61,7 +62,8 @@ export default function Profile() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        {/* 2. Wskaźnik ukończenia - Zwężony do md={3} */}
+        <Grid item xs={12} md={3}>
           <Paper elevation={0} sx={{ p: 4, borderRadius: '24px', border: '1px solid #e2e8f0', bgcolor: '#ffffff', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <Typography variant="subtitle2" fontWeight="800" textTransform="uppercase" sx={{ color: '#64748b', mb: 2 }}>Wskaźnik ukończenia</Typography>
             <Typography variant="h1" fontWeight="900" sx={{ color: '#1a1a1a', mb: 4, letterSpacing: '-0.04em' }}>{completionRate}%</Typography>
@@ -73,7 +75,8 @@ export default function Profile() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        {/* 3. Aktywność w tygodniu - Poszerzony do md={5} */}
+        <Grid item xs={12} md={5}>
           <Paper elevation={0} sx={{ p: 4, borderRadius: '24px', border: '1px solid #e2e8f0', bgcolor: '#ffffff', height: '100%', display: 'flex', flexDirection: 'column' }}>
             <Typography variant="subtitle2" fontWeight="800" textTransform="uppercase" sx={{ color: '#64748b', mb: 'auto' }}>Aktywność w tygodniu</Typography>
             
@@ -104,8 +107,8 @@ export default function Profile() {
 
         {/* ================= RZĄD 2 (Dół) ================= */}
         
-        {/* 4. Alert / Powiadomienia */}
-        <Grid item xs={12} md={8}>
+        {/* 4. Alert / Powiadomienia - Dostosowany do md={7} (licuje się z dwoma pierwszymi górnymi) */}
+        <Grid item xs={12} md={7}>
           {highPriorityTasks > 0 ? (
             <Paper elevation={0} sx={{ height: '100%', p: 4, borderRadius: '24px', bgcolor: '#1a1a1a', color: '#ffffff', display: 'flex', alignItems: 'center', gap: 3 }}>
               <Box sx={{ bgcolor: '#FFD600', width: 16, height: 16, borderRadius: '50%', flexShrink: 0 }} />
@@ -123,8 +126,8 @@ export default function Profile() {
           )}
         </Grid>
 
-        {/* 5. Statystyki */}
-        <Grid item xs={12} md={4}>
+        {/* 5. Statystyki - Poszerzone do md={5} (licują się z wykresem aktywności) */}
+        <Grid item xs={12} md={5}>
           <Box sx={{ display: 'flex', width: '100%', height: '100%', gap: 2 }}>
             
             {/* Żółty Kafelek */}
