@@ -123,35 +123,29 @@ export default function Profile() {
           )}
         </Grid>
 
-{/* 5. Statystyki: NIEZNISZCZALNA SIATKA (Zawsze 3 idealne kolumny po 33%) */}
+        {/* 5. Statystyki: szerokość 100% wymusza na nich rozciągnięcie! */}
         <Grid item xs={12} md={4}>
-          <Grid container spacing={2}>
+          <Box sx={{ display: 'flex', width: '100%', gap: 2 }}>
             
             {/* Żółty Kwadrat */}
-            <Grid item xs={4}>
-              <Paper elevation={0} sx={{ width: '100%', bgcolor: '#FFD600', color: '#1a1a1a', p: 1, aspectRatio: '1/1', borderRadius: { xs: '16px', sm: '24px' }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <Typography variant="h4" fontWeight="900" sx={{ fontSize: { xs: '1.8rem', sm: '2.125rem' } }}>{totalTasks}</Typography>
-                <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ fontSize: { xs: '0.55rem', sm: '0.65rem' }, mt: 0.5 }}>Ogółem</Typography>
-              </Paper>
-            </Grid>
+            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#FFD600', color: '#1a1a1a', p: 1, aspectRatio: '1/1', borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <Typography variant="h4" fontWeight="900" sx={{ fontSize: { xs: '2rem', sm: '2.125rem' } }}>{totalTasks}</Typography>
+              <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>Ogółem</Typography>
+            </Paper>
 
             {/* Czarny Kwadrat */}
-            <Grid item xs={4}>
-              <Paper elevation={0} sx={{ width: '100%', bgcolor: '#1a1a1a', color: '#ffffff', p: 1, aspectRatio: '1/1', borderRadius: { xs: '16px', sm: '24px' }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <Typography variant="h4" fontWeight="900" sx={{ fontSize: { xs: '1.8rem', sm: '2.125rem' } }}>{completedTasks}</Typography>
-                <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ color: '#94a3b8', fontSize: { xs: '0.55rem', sm: '0.65rem' }, mt: 0.5 }}>Gotowe</Typography>
-              </Paper>
-            </Grid>
+            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#1a1a1a', color: '#ffffff', p: 1, aspectRatio: '1/1', borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <Typography variant="h4" fontWeight="900" sx={{ fontSize: { xs: '2rem', sm: '2.125rem' } }}>{completedTasks}</Typography>
+              <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ color: '#94a3b8', fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>Gotowe</Typography>
+            </Paper>
 
             {/* Biały Kwadrat */}
-            <Grid item xs={4}>
-              <Paper elevation={0} sx={{ width: '100%', bgcolor: '#ffffff', border: '1px solid #e2e8f0', p: 1, aspectRatio: '1/1', borderRadius: { xs: '16px', sm: '24px' }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <Typography variant="h4" fontWeight="900" sx={{ color: '#1a1a1a', fontSize: { xs: '1.8rem', sm: '2.125rem' } }}>{pendingTasks}</Typography>
-                <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ color: '#64748b', fontSize: { xs: '0.55rem', sm: '0.65rem' }, mt: 0.5 }}>W toku</Typography>
-              </Paper>
-            </Grid>
+            <Paper elevation={0} sx={{ flex: 1, bgcolor: '#ffffff', border: '1px solid #e2e8f0', p: 1, aspectRatio: '1/1', borderRadius: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <Typography variant="h4" fontWeight="900" sx={{ color: '#1a1a1a', fontSize: { xs: '2rem', sm: '2.125rem' } }}>{pendingTasks}</Typography>
+              <Typography variant="caption" fontWeight="800" textTransform="uppercase" sx={{ color: '#64748b', fontSize: { xs: '0.6rem', sm: '0.65rem' }, mt: 0.5 }}>W toku</Typography>
+            </Paper>
 
-          </Grid>
+          </Box>
         </Grid>
 
       </Grid>
