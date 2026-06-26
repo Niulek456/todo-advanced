@@ -66,7 +66,7 @@ export default function Dashboard() {
         + Nowe zadanie
       </Button>
 
-      {/* FILTRY Z ŻÓŁTYMI AKCENTAMI (Poprawiony kontrast: brak opacity, ciemniejszy szary #475569) */}
+      {/* FILTRY */}
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 4, borderBottom: '1px solid #e2e8f0', pb: 2, gap: { xs: 2, sm: 4 } }}>
         <Box 
           onClick={() => setFilter('all')}
@@ -121,11 +121,12 @@ export default function Dashboard() {
               >
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flexGrow: 1, pr: 2 }}>
                   <Typography 
+                    id={`task-title-${todo.id}`} // <--- DODANE ID
                     variant="subtitle1" 
+                    component="h2"               // <--- POPRAWNIE WYCIĄGNIĘTY COMPONENT
                     sx={{ 
                       textAlign: 'left',
                       textDecoration: todo.completed ? 'line-through' : 'none',
-                      // Poprawiony kontrast dla ukończonych zadań (użycie ciemniejszego szarego #475569)
                       color: todo.completed ? '#475569' : '#1a1a1a',
                       fontWeight: 800,
                       fontSize: '1.1rem'
@@ -141,7 +142,6 @@ export default function Dashboard() {
                       <Chip 
                         label={todo.priority} 
                         size="small" 
-                        // Poprawiony kontrast dla tagów priorytetu (użycie #be123c dla high)
                         sx={{ height: 20, fontSize: '0.75rem', fontWeight: '800', bgcolor: todo.priority === 'high' ? '#ffe4e6' : '#f1f5f9', color: todo.priority === 'high' ? '#be123c' : '#475569', borderRadius: '6px' }} 
                       />
                     )}
@@ -161,7 +161,11 @@ export default function Dashboard() {
                   <Checkbox
                     checked={todo.completed}
                     onChange={() => toggleTodo(todo.id)}
-                    inputProps={{ 'aria-label': `Oznacz zadanie ${todo.title} jako wykonane` }}
+                    // POPRAWIONY MOST DOSTĘPNOŚCI:
+                    inputProps={{ 
+                      'aria-labelledby': `task-title-${todo.id}`,
+                      'aria-label': 'Zaznacz jako ukończone'
+                    }}
                     icon={
                       <Box sx={{ width: 30, height: 30, borderRadius: '50%', border: '2px solid #cbd5e1', transition: '0.2s', '&:hover': { borderColor: '#FFD600' } }} />
                     }

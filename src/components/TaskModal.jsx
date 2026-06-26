@@ -41,6 +41,7 @@ export default function TaskModal({ open, onClose }) {
         <DialogContent>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, mt: 1 }}>
             <TextField
+            id="task-title"
               label="Tytuł zadania"
               fullWidth
               {...register('title')}
@@ -49,6 +50,7 @@ export default function TaskModal({ open, onClose }) {
             />
             
             <TextField
+            id="task-description"
               label="Opis (opcjonalnie)"
               fullWidth
               multiline
@@ -59,6 +61,7 @@ export default function TaskModal({ open, onClose }) {
             />
             
             <TextField
+              id="task-priority"
               select
               label="Priorytet"
               fullWidth
