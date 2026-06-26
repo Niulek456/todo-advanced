@@ -1,16 +1,26 @@
-# React + Vite
+# TaskMind - React Task Management App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Zaawansowana aplikacja Single Page Application (SPA) do zarządzania zadaniami, zbudowana w środowisku React z użyciem nowoczesnych standardów dostępności (WCAG) oraz responsywnego układu ekranu (RWD).
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** https://todo-advanced-chi.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠 Technologie i Architektura
+* **React (Vite):** Błyskawiczne środowisko deweloperskie i optymalny build.
+* **Material-UI (MUI v5):** System komponentów z dostosowanym, niestandardowym motywem (Neo-Brutalism / Bento Box).
+* **Context API:** Globalne zarządzanie stanem (brak "Prop Drilling").
+* **React Hook Form + Zod:** Wydajna obsługa formularzy ze ścisłą walidacją schematów.
+* **React Router DOM:** Dynamiczny routing (SPA) bez przeładowywania strony.
 
-## React Compiler
+## 🌟 Główne funkcjonalności i UX/UI
+* **Dostępność (A11y):** Wdrożony mechanizm *Focus Trap* w oknach modalnych, pełne wsparcie dla nawigacji klawiaturą, oraz optymalny kontrast (spełniający wyśrubowane normy Lighthouse 100/100 w kategorii Accessibility).
+* **Responsive Web Design:** Płynne dostosowywanie siatki (Grid/Flexbox) – układ jednokolumnowy na urządzeniach mobilnych, przechodzący w zaawansowany układ Bento Box na desktopie. Wykres aktywności skalujący się dynamicznie dzięki proporcjonalnym kolumnom (`flex: 1`).
+* **Semantyka HTML:** Odpowiednia struktura nagłówków (`h1`, `h2`) oraz wymuszony tag `<main>` dla czytników ekranowych.
+* **Dynamiczny rendering:** Płynne animacje pojawiania się zadań (kaskadowy `<Fade>`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 💻 Instrukcja lokalnego uruchomienia
 
-## Expanding the ESLint configuration
+Aby uruchomić projekt na własnym komputerze, postępuj zgodnie z poniższymi krokami:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Klonowanie repozytorium:
+   ```bash
+   git clone https://github.com/Niulek456/todo-advanced
