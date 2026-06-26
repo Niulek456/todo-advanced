@@ -40,12 +40,12 @@ export default function Dashboard() {
         <Typography variant="h4" component="h1" fontWeight="900" sx={{ color: '#1a1a1a', lineHeight: 1.1, mb: 1.5, letterSpacing: '-0.02em' }}>
           Skup się na tym,<br />co ważne.
         </Typography>
-        <Typography variant="body2" color="text.secondary" fontWeight="700" sx={{ textTransform: 'capitalize' }}>
+        <Typography variant="body2" sx={{ color: '#475569', fontWeight: '700', textTransform: 'capitalize' }}>
           {today}
         </Typography>
       </Box>
 
-      {/* ŻÓŁTY PRZYCISK GŁÓWNY (Neo-Brutalism CTA) */}
+      {/* ŻÓŁTY PRZYCISK GŁÓWNY */}
       <Button 
         variant="contained" 
         fullWidth
@@ -66,11 +66,11 @@ export default function Dashboard() {
         + Nowe zadanie
       </Button>
 
-      {/* FILTRY Z ŻÓŁTYMI AKCENTAMI */}
+      {/* FILTRY Z ŻÓŁTYMI AKCENTAMI (Poprawiony kontrast: brak opacity, ciemniejszy szary #475569) */}
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 4, borderBottom: '1px solid #e2e8f0', pb: 2, gap: { xs: 2, sm: 4 } }}>
         <Box 
           onClick={() => setFilter('all')}
-          sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 1, opacity: filter === 'all' ? 1 : 0.5, fontWeight: filter === 'all' ? 800 : 600, color: '#1a1a1a', whiteSpace: 'nowrap', transition: '0.2s' }}
+          sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 1, color: filter === 'all' ? '#1a1a1a' : '#475569', fontWeight: filter === 'all' ? 900 : 700, whiteSpace: 'nowrap', transition: '0.2s' }}
         >
           Wszystkie 
           <Chip label={todos.length} size="small" sx={{ bgcolor: filter === 'all' ? '#FFD600' : '#e2e8f0', color: '#1a1a1a', fontWeight: '900', height: 22, borderRadius: 2 }} />
@@ -80,7 +80,7 @@ export default function Dashboard() {
 
         <Box 
           onClick={() => setFilter('open')}
-          sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 1, opacity: filter === 'open' ? 1 : 0.5, fontWeight: filter === 'open' ? 800 : 600, color: '#1a1a1a', whiteSpace: 'nowrap', transition: '0.2s' }}
+          sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 1, color: filter === 'open' ? '#1a1a1a' : '#475569', fontWeight: filter === 'open' ? 900 : 700, whiteSpace: 'nowrap', transition: '0.2s' }}
         >
           Otwarte 
           <Chip label={openTasks.length} size="small" sx={{ bgcolor: filter === 'open' ? '#FFD600' : '#e2e8f0', color: '#1a1a1a', fontWeight: '900', height: 22, borderRadius: 2 }} />
@@ -88,7 +88,7 @@ export default function Dashboard() {
 
         <Box 
           onClick={() => setFilter('closed')}
-          sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 1, opacity: filter === 'closed' ? 1 : 0.5, fontWeight: filter === 'closed' ? 800 : 600, color: '#1a1a1a', whiteSpace: 'nowrap', transition: '0.2s' }}
+          sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 1, color: filter === 'closed' ? '#1a1a1a' : '#475569', fontWeight: filter === 'closed' ? 900 : 700, whiteSpace: 'nowrap', transition: '0.2s' }}
         >
           Ukończone 
           <Chip label={closedTasks.length} size="small" sx={{ bgcolor: filter === 'closed' ? '#FFD600' : '#e2e8f0', color: '#1a1a1a', fontWeight: '900', height: 22, borderRadius: 2 }} />
@@ -98,8 +98,8 @@ export default function Dashboard() {
       {/* LISTA ZADAŃ */}
       <Stack spacing={2.5}>
         {displayedTodos.length === 0 ? (
-          <Box sx={{ p: 4, textAlign: 'center', color: 'text.secondary' }}>
-            <Typography variant="body1" fontWeight="600">Brak zadań w tej kategorii. 🌴</Typography>
+          <Box sx={{ p: 4, textAlign: 'center', color: '#475569' }}>
+            <Typography variant="body1" fontWeight="700">Brak zadań w tej kategorii. 🌴</Typography>
           </Box>
         ) : (
           displayedTodos.map((todo, index) => (
@@ -125,7 +125,8 @@ export default function Dashboard() {
                     sx={{ 
                       textAlign: 'left',
                       textDecoration: todo.completed ? 'line-through' : 'none',
-                      color: todo.completed ? '#94a3b8' : '#1a1a1a',
+                      // Poprawiony kontrast dla ukończonych zadań (użycie ciemniejszego szarego #475569)
+                      color: todo.completed ? '#475569' : '#1a1a1a',
                       fontWeight: 800,
                       fontSize: '1.1rem'
                     }}
@@ -133,14 +134,15 @@ export default function Dashboard() {
                     {todo.title}
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 1, mt: 0.5 }}>
-                    <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'left', fontWeight: '500' }}>
+                    <Typography variant="body2" sx={{ textAlign: 'left', fontWeight: '600', color: '#475569' }}>
                       {todo.description || 'Brak opisu'}
                     </Typography>
                     {todo.priority && (
                       <Chip 
                         label={todo.priority} 
                         size="small" 
-                        sx={{ height: 20, fontSize: '0.7rem', fontWeight: '800', bgcolor: todo.priority === 'high' ? '#ffe4e6' : '#f1f5f9', color: todo.priority === 'high' ? '#e11d48' : 'text.secondary', borderRadius: '6px' }} 
+                        // Poprawiony kontrast dla tagów priorytetu (użycie #be123c dla high)
+                        sx={{ height: 20, fontSize: '0.75rem', fontWeight: '800', bgcolor: todo.priority === 'high' ? '#ffe4e6' : '#f1f5f9', color: todo.priority === 'high' ? '#be123c' : '#475569', borderRadius: '6px' }} 
                       />
                     )}
                   </Box>
@@ -151,12 +153,11 @@ export default function Dashboard() {
                     edge="end" 
                     onClick={() => deleteTodo(todo.id)}
                     aria-label={`Usuń zadanie ${todo.title}`}
-                    sx={{ color: '#cbd5e1', transition: '0.2s', '&:hover': { color: '#ef4444', bgcolor: '#fef2f2', transform: 'scale(1.1)' } }}
+                    sx={{ color: '#94a3b8', transition: '0.2s', '&:hover': { color: '#ef4444', bgcolor: '#fef2f2', transform: 'scale(1.1)' } }}
                   >
                     <span style={{ fontSize: '1.2rem' }} aria-hidden="true">🗑️</span>
                   </IconButton>
                   
-                  {/* ŻÓŁTY CHECKBOX PO ZAZNACZENIU */}
                   <Checkbox
                     checked={todo.completed}
                     onChange={() => toggleTodo(todo.id)}
